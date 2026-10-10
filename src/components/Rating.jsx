@@ -13,14 +13,15 @@ const Rating = () => {
             <div className="stars">
                 {stars.map((star) => (
                     <span
-                        key={star}
                         onClick={() => setRating(star)}
                         onMouseEnter={() => setHover(star)}
                         onMouseLeave={() => setHover(0)}
-                        className={`star ${star <= (hover || rating) ? "active" : ""}`}
+                        key={star}
+                        className='star'
+                        style={{ color: star <= (hover || rating) ? "gold" : "#ccc" }}
                     >
                         {"\u2605"}
-                    </span>
+                     </span>
                 ))}
             </div>
             {rating > 0 && <p className="feedback">{feedbackMessages[rating - 1]}</p>}
